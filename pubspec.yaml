@@ -1,0 +1,36 @@
+name: cv
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+environment:
+  sdk: '>=2.19.4 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  font_awesome_flutter: ^10.4.0
+  random_text_reveal: ^0.0.6
+  google_fonts: ^4.0.4
+  mailto: ^2.0.0
+  url_launcher: ^6.1.11
+  path_provider: ^2.0.15
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: Allison_Script
+      fonts:
+        - asset: assets/fonts/Allison_Script.otf
