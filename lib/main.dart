@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:isolate';
-import 'dart:ui';
 import 'package:cv/workExperience.dart';
 import 'package:cv/skkills.dart';
 import 'package:flutter/material.dart';
@@ -237,7 +235,7 @@ emailService() async {
                       color: Color(0xff0095ea),
                     ),
                   ),
-                  FaIcon(FontAwesomeIcons.twitter, color: Color(0xff00a2ed)),
+                  const FaIcon(FontAwesomeIcons.twitter, color: Color(0xff00a2ed)),
                   InkWell(
                     onTap: () async {
                       final Uri url = Uri.parse('https://instagram.com/antrikshkukreti?igshid=NTc4MTIwNjQ2YQ==');
@@ -250,7 +248,14 @@ emailService() async {
                       color: Color(0xfff71473),
                     ),
                   ),
-                  FaIcon(FontAwesomeIcons.github),
+                  InkWell(
+                      onTap: () async {
+                        final Uri url = Uri.parse('https://github.com/AntrikshKukreti');
+                        if (!await launchUrl(url)) {
+                        throw Exception('Could not launch $url');
+                        }
+                      },
+                      child: const FaIcon(FontAwesomeIcons.github)),
                   InkWell(
                     onTap: () async {
                       final Uri url = Uri.parse('https://www.linkedin.com/in/antriksh-kukreti-051864196');
