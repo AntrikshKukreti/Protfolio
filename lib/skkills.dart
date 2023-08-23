@@ -12,19 +12,23 @@ class _SkillsState extends State<Skills> {
 
   List languages = [
     {
-      "name": "C",
-      "percent": "65",
+      "name": "Flutter",
+      "percent": "75",
     },
+    // {
+    //   "name": "C",
+    //   "percent": "65",
+    // },
     {
       "name": "Python",
       "percent": "60",
     },
     {
-      "name": "Flutter",
-      "percent": "70",
+      "name": "React.js",
+      "percent": "60",
     },
     {
-      "name": "React.js",
+      "name": "React Native",
       "percent": "60",
     },
     {

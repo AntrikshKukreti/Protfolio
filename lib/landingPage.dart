@@ -13,6 +13,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:random_text_reveal/random_text_reveal.dart';
 import 'package:mailto/mailto.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:io' show Platform;
 
 
 class LandingPage extends StatefulWidget {
@@ -52,7 +53,6 @@ class _LandingPageState extends State<LandingPage> {
       globalKey.currentState?.play();
     });
     myFocusNode = FocusNode();
-    // TODO: implement initState
     super.initState();
   }
 
@@ -70,6 +70,19 @@ class _LandingPageState extends State<LandingPage> {
     );
     await launch('$mailtoLink');
   }
+
+    whatsApp() async {
+      final Uri url;
+      if (Platform.isAndroid) {
+
+        url = Uri.parse("https://wa.me/919557669576/?text=${Uri.parse('Hi')}");
+      } else {
+        url = Uri.parse("https://api.whatsapp.com/send?phone=919557669576=${Uri.parse('Hi')}");
+      }
+      if (!await launchUrl(url,mode: LaunchMode.externalNonBrowserApplication)) {
+        throw Exception('Could not launch $url');
+      }
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -495,12 +508,23 @@ class _LandingPageState extends State<LandingPage> {
                     SizedBox(height: Get.height*0.2,
                       child: const Courses(),),
 
-                    Text(
-                      'CONTACT ME',
-                      key: contactUs,
-                      style: TextStyle(
-                          color: const Color(0xfff3ca2f),
-                          fontSize: Get.width * 0.085),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'CONTACT ME',
+                          key: contactUs,
+                          style: TextStyle(
+                              color: const Color(0xfff3ca2f),
+                              fontSize: Get.width * 0.085),
+                        ),
+                        GestureDetector(
+                            onTap: (){
+                              whatsApp();
+                            },
+                            child: const FaIcon(FontAwesomeIcons.whatsapp,
+                              color: Color(0xff008c7f),))
+                      ],
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: Get.height*0.01),
